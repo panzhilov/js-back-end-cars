@@ -2,9 +2,19 @@
 // [x] initialize templating library
 // [x] create home controller
 // [x] bind routing
-// [] create layout
-// [] create data service
-// [] implement controllers
+// [x] create layout
+//  create data service
+//  - [x] read ll
+//  - [x] read one by id
+//  - [x] create
+//  - [] edit
+//  - [] delete
+//  - [] search
+//  implement controllers
+//  - [x] home (catalog)
+//  - [x] about
+//  - [x] details
+//  - [] create
 
 const express = require('express');
 const hbs = require('express-handlebars');
@@ -12,7 +22,7 @@ const hbs = require('express-handlebars');
 const carsService = require('./services/cars')
 
 const { home } = require('./controllers/home');
-const { create } = require('./controllers/create');
+const  create  = require('./controllers/create');
 const { about } = require('./controllers/about');
 const { details } = require('./controllers/details');
 const { notFound } = require('./controllers/notFound');
@@ -32,8 +42,9 @@ app.use(carsService());
 
 app.get('/', home)
 app.get('/about', about)
-app.get('/create', create)
 app.get('/details/:id', details)
+app.get('/create', create.get)
+app.post('/create', create.post)
 
 // app.all("*", notFound)
 
