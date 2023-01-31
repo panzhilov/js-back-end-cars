@@ -14,7 +14,8 @@
 //  - [x] home (catalog)
 //  - [x] about
 //  - [x] details
-//  - [] create
+//  - [x] create
+//  - [x] improved home(search)
 
 const express = require('express');
 const hbs = require('express-handlebars');
@@ -46,6 +47,6 @@ app.get('/details/:id', details)
 app.get('/create', create.get)
 app.post('/create', create.post)
 
-// app.all("*", notFound)
+app.all("*", notFound)
 
 app.listen(3000, () => console.log('Server started on port 3000'));
