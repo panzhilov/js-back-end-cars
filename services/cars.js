@@ -16,7 +16,7 @@ async function read() {
 
 async function write(data) {
     try {
-        await fs.writeFile(filePath, JSON.stringify(data));
+        await fs.writeFile(filePath, JSON.stringify(data, null, " "))
     } catch (err) {
         console.error('Database write error');
         console.error(err);
@@ -39,7 +39,7 @@ async function getAll(query) {
         }
         
         if(query.to){
-            cars = cars.filter(c => c.price <= Number(query.to))
+            cars = cars.filter(c => c.price <= Number(query.from))
         }
 
         return cars;
