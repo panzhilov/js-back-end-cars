@@ -38,7 +38,7 @@ app.engine('hbs', hbs.create({
 app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('static'));
+app.use('/static', express.static('static'));
 app.use(carsService());
 
 app.get('/', home)
