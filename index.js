@@ -16,6 +16,9 @@
 //  - [x] details
 //  - [x] create
 //  - [x] improved home(search)
+//  - [] edit
+//  - [] delete
+//  - [x] add front-end code
 
 const express = require('express');
 const hbs = require('express-handlebars');
@@ -24,6 +27,7 @@ const carsService = require('./services/cars')
 
 const { home } = require('./controllers/home');
 const  create  = require('./controllers/create');
+const deleteCar = require('./controllers/delete');
 const { about } = require('./controllers/about');
 const { details } = require('./controllers/details');
 const { notFound } = require('./controllers/notFound');
@@ -46,6 +50,8 @@ app.get('/about', about)
 app.get('/details/:id', details)
 app.get('/create', create.get)
 app.post('/create', create.post)
+app.get('/delete/:id', deleteCar.get);
+app.post('/delete/:id', deleteCar.post);
 
 app.all("*", notFound)
 
