@@ -1,1 +1,8 @@
-{}
+{
+ "0fcec5e4-d682": {
+  "name": "Toyota",
+  "description": "its fancy",
+  "imageUrl": "download.jpeg",
+  "price": 235
+ }
+}

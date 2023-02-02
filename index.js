@@ -7,17 +7,17 @@
 //  - [x] read ll
 //  - [x] read one by id
 //  - [x] create
-//  - [] edit
-//  - [] delete
-//  - [] search
+//  - [x] edit
+//  - [x] delete
+//  - [x] search
 //  implement controllers
 //  - [x] home (catalog)
 //  - [x] about
 //  - [x] details
 //  - [x] create
 //  - [x] improved home(search)
-//  - [] edit
-//  - [] delete
+//  - [x] edit
+//  - [x] delete
 //  - [x] add front-end code
 
 const express = require('express');
@@ -28,6 +28,7 @@ const carsService = require('./services/cars')
 const { home } = require('./controllers/home');
 const  create  = require('./controllers/create');
 const deleteCar = require('./controllers/delete');
+const editCar = require('./controllers/edit');
 const { about } = require('./controllers/about');
 const { details } = require('./controllers/details');
 const { notFound } = require('./controllers/notFound');
@@ -52,7 +53,8 @@ app.get('/create', create.get)
 app.post('/create', create.post)
 app.get('/delete/:id', deleteCar.get);
 app.post('/delete/:id', deleteCar.post);
-
+app.get('/edit/:id', editCar.get);
+app.post('/edit/:id', editCar.post);
 app.all("*", notFound)
 
 app.listen(3000, () => console.log('Server started on port 3000'));
