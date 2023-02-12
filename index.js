@@ -25,9 +25,10 @@
 //  - [] attach accessory to car
 //  - [] update dettails to include accessory
 //  - [x] add front-end code
-//  - [] add database connection
-//  - [] create Car model
-//  - [] upgrade car service to use car model
+//  - [x] add database connection
+//  - [x] create Car model
+//  - [x] upgrade car service to use car model
+//  - [] add validation rules to car model
 //  - [] create Accessory model
 
 const express = require('express');
@@ -44,6 +45,7 @@ const editCar = require('./controllers/edit');
 const { about } = require('./controllers/about');
 const { details } = require('./controllers/details');
 const { notFound } = require('./controllers/notFound');
+const accessory = require('./controllers/accessory');
 
 start();
 
@@ -70,6 +72,7 @@ async function start() {
     app.post('/delete/:id', deleteCar.post);
     app.get('/edit/:id', editCar.get);
     app.post('/edit/:id', editCar.post);
+    app.get('/accessory', accessory.get);
     app.all("*", notFound)
 
     app.listen(3000, () => console.log('Server started on port 3000'));
